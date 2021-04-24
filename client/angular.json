@@ -26,6 +26,9 @@
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
+              "./node_modules/bootswatch/dist/united/bootstrap.css",
+              "./node_modules/font-awesome/css/font-awesome.css",
+              "./node_modules/ngx-toastr/toastr.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -61,9 +64,12 @@
             }
           }
         },
-         "serve": {
+        "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
+            "sslCert": "./ssl/server.crt",
+            "sslKey": "./ssl/server.key",
+            "ssl": false,
             "browserTarget": "client:build"
           },
           "configurations": {
@@ -127,6 +133,6 @@
   },
   "defaultProject": "client",
   "cli": {
-    "analytics": "6979de75-f8a5-4907-8ad4-4df529eeeffb"
+    "analytics": "7ad10094-4dfe-46aa-ab43-7f3d2b060767"
   }
 }
