@@ -41,7 +41,6 @@ export class MemberDetailComponent implements OnInit {
         big: photo?.url
       })
     }
-    debugger
     return imageUrls;
   }
 
