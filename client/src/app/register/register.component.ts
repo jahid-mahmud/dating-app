@@ -10,74 +10,48 @@ import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  // @Output() cancelRegister = new EventEmitter();
-  // model: any = {};
-
   bsConfig: Partial<BsDatepickerConfig>;
-  dxpConnectionForm: FormGroup = new FormGroup({
-    iak: new FormControl('', [Validators.required]),
-    idpUserId: new FormControl('', [Validators.required]),
-    password: new FormControl('', [Validators.required]),
-    organizationId: new FormControl({value: '', disabled: true}, [Validators.required]),
+  
+  @Output() cancelRegister = new EventEmitter();
+  maxDate: Date;
+
+  validationErrors: string[] = [];
+  registerForm: FormGroup = new FormGroup({
+    gender: new FormControl('male', [Validators.required]),
+    username: new FormControl('', [Validators.required]),
+    knownAs: new FormControl('', [Validators.required]),
+    dateOfBirth: new FormControl('', [Validators.required]),
+    city: new FormControl('', [Validators.required]),
+    country: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(8)]),
+    confirmPassword: new FormControl('', [Validators.required, this.matchValues('password')]),
   });
 
-  // constructor(private accountService: AccountService, private toastr: ToastrService) { }
+  constructor(private accountService: AccountService, private toastr: ToastrService, 
+    private fb: FormBuilder, private router: Router) {
+      this.bsConfig = {
+        containerClass: 'theme-red',
+        dateInputFormat: 'DD MMMM YYYY'
+      }
+     }
 
-  // ngOnInit(): void {
-  // }
+
   
 
-  // register() {
-  //   this.accountService.register(this.model).subscribe(response => {
-  //     console.log(response);
-  //     this.cancel();
-  //   }, error => {
-  //     console.log(error);
-  //     this.toastr.error(error.error);
-  //   })
-  // }
+  ngOnInit(): void {
+    this.maxDate = new Date();
+    this.maxDate.setFullYear(this.maxDate.getFullYear() -18);
+  }
 
+  
+  
   hasError(controlName: string, type: string) {
     let formControl = this.registerForm.get(controlName);
     return formControl && formControl.hasError(type) && formControl.touched;
   }
 
-  // connectDxp() {
 
-  // }
-
-
-  // cancel() {
-  //   this.cancelRegister.emit(false);
-  // }
-
-  @Output() cancelRegister = new EventEmitter();
-  registerForm: FormGroup;
-  maxDate: Date;
-  validationErrors: string[] = [];
-
-  constructor(private accountService: AccountService, private toastr: ToastrService, 
-    private fb: FormBuilder, private router: Router) { }
-
-  ngOnInit(): void {
-    this.intitializeForm();
-    this.maxDate = new Date();
-    this.maxDate.setFullYear(this.maxDate.getFullYear() -18);
-  }
-
-  intitializeForm() {
-    this.registerForm = this.fb.group({
-      gender: ['male'],
-      username: ['', Validators.required],
-      knownAs: ['', Validators.required],
-      dateOfBirth: ['', Validators.required],
-      city: ['', Validators.required],
-      country: ['', Validators.required],
-      password: ['', [Validators.required, 
-        Validators.minLength(4), Validators.maxLength(8)]],
-      confirmPassword: ['', [Validators.required, this.matchValues('password')]]
-    })
-  }
+  
 
   matchValues(matchTo: string): ValidatorFn {
     return (control: AbstractControl) => {
@@ -87,6 +61,7 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
+    console.log(this.registerForm)
     this.accountService.register(this.registerForm.value).subscribe(response => {
       this.router.navigateByUrl('/members');
     }, error => {
