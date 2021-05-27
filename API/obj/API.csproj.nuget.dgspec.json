@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\My App\\DatingApp\\API\\API.csproj": {}
+    "D:\\My App\\DatingApp\\api\\API.csproj": {}
   },
   "projects": {
-    "D:\\My App\\DatingApp\\API\\API.csproj": {
+    "D:\\My App\\DatingApp\\api\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\My App\\DatingApp\\API\\API.csproj",
+        "projectUniqueName": "D:\\My App\\DatingApp\\api\\API.csproj",
         "projectName": "API",
-        "projectPath": "D:\\My App\\DatingApp\\API\\API.csproj",
+        "projectPath": "D:\\My App\\DatingApp\\api\\API.csproj",
         "packagesPath": "C:\\Users\\jahidjm\\.nuget\\packages\\",
-        "outputPath": "D:\\My App\\DatingApp\\API\\obj\\",
+        "outputPath": "D:\\My App\\DatingApp\\api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jahidjm\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -41,6 +41,10 @@
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[8.1.1, )"
+            },
+            "CloudinaryDotNet": {
+              "target": "Package",
+              "version": "[1.11.0, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",

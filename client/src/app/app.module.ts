@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +24,7 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { PhotoeditorComponent } from './members/photoeditor/photoeditor.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     TestErrorComponent,
     NotFoundComponent,
     MemberCardComponent,
-    MemberEditComponent
+    MemberEditComponent,
+    PhotoeditorComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +49,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     BrowserAnimationsModule,
     FormsModule,
     SharedModule,
+    ReactiveFormsModule,
     NgxSpinnerModule
   ],
   providers: [
