@@ -1,0 +1,67 @@
+.gi-input-form {
+    .gi-input-label {
+      -webkit-font-smoothing: antialiased;
+      font-size: 14px;
+      font-weight: 600;
+      color: rgb(50, 49, 48);
+      box-sizing: border-box;
+      box-shadow: none;
+      margin: 0px;
+      display: block;
+      padding: 5px 0px;
+      overflow-wrap: break-word;
+    }
+  
+    input[class~='gi-input'],
+    textarea[class~='gi-input'],
+    input[class~='mat-datepicker-input gi-input'] {
+      -webkit-font-smoothing: antialiased;
+      font-size: 14px;
+      font-weight: 400;
+      box-shadow: none;
+      margin: 0px;
+      padding: 0 8px;
+      box-sizing: border-box;
+      color: rgb(50, 49, 48);
+      width: 100%;
+      min-width: 0px;
+      text-overflow: ellipsis;
+      box-shadow: none;
+      margin: 0px;
+      box-sizing: border-box;
+      border:none;
+      border-radius: 3px;
+      background: rgb(255, 255, 255);
+      cursor: text;
+      height: 32px;
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+      position: relative;
+      resize: none;
+  
+      &:focus {
+        outline: none;
+        border:none;
+        border-bottom: 2px solid #17a2b8;
+      }
+  
+      &:disabled {
+        cursor: not-allowed;
+      }
+    }
+  
+    .mat-expansion-panel-header {
+      margin-bottom: 15px;
+  
+      .form-group-title {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+  }
+  .drawer-body {
+    padding: 30px;
+    width: 100%;
+    margin: 0 auto;
+  }

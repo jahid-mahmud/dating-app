@@ -1,17 +1,163 @@
-<form #registerForm="ngForm" (ngSubmit)="register()" autocomplete="off">
-    <h2 class="text-center text-primary">Sign up</h2>
-    <hr>
-    <div class="form-group">
-        <input type="text" class="form-control" name="username" 
-            [(ngModel)]="model.UserName" placeholder="Username"  >
-    </div>
+<form [formGroup]="registerForm" (ngSubmit)="register()" class="gi-input-form">
+    <div class="drawer-body">
+        <div class="form-group">
 
-    <div class="form-group">
-        <input type="password" class="form-control" name="password" 
-            [(ngModel)]="model.Password" placeholder="Password"  >
-    </div>
-    <div class="form-group text-center">
-        <button class="btn btn-success mr-2" type="submit">Register</button>
-        <button class="btn btn-default mr-2" (click)="cancel()" type="button">Cancel</button>
+            <div class="form-group-fields">
+                <div class="form-group-item">
+                    <div class="form-group">
+                        <label class="gi-input-label" for="gender">gender <span class="required">*</span></label>
+                        <label class="radio-inline">
+                            <input type="radio" value='male' formControlName='gender'> Male
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" value='female' formControlName='gender' class="ml-3"> Female
+                        </label>
+                    </div>
+                    <div class="form-group-item">
+                        <label class="gi-input-label" for="username">Name <span class="required">*</span></label>
+                        <input class="gi-input" id="username" formControlName="username" type="text"
+                            placeholder="Start typing" />
+                        <mat-error *ngIf="hasError('username', 'required')">
+                            name is required *
+                        </mat-error>
+                    </div>
+                    <div class="form-group-item">
+                        <label class="gi-input-label" for="knownAs">knownAs <span class="required">*</span></label>
+                        <input class="gi-input" id="knownAs" formControlName="knownAs" type="text"
+                            placeholder="Start typing" />
+                        <mat-error *ngIf="hasError('knownAs', 'required')">
+                            name is required *
+                        </mat-error>
+                    </div>
+
+                    <div class="form-group-item">
+                        <label class="gi-input-label" for="knownAs">knownAs <span class="required">*</span></label>
+                        <input 
+                            type="text"
+                            class='form-control'
+                            formControlName="knownAs"
+                            placeholder="Date of birth"
+                            bsDatepicker
+                            [bsConfig]='bsConfig'
+                            [maxDate]='maxDate'
+                        >
+                        
+                    </div>
+
+                    <div class="form-group-item">
+                        <label class="gi-input-label" for="city">city <span class="required">*</span></label>
+                        <input class="gi-input" id="city" formControlName="city" type="text"
+                            placeholder="Start typing" />
+                        <mat-error *ngIf="hasError('city', 'required')">
+                            name is required *
+                        </mat-error>
+                    </div>
+
+                    <div class="form-group-item">
+                        <label class="gi-input-label" for="country">country <span class="required">*</span></label>
+                        <input class="gi-input" id="country" formControlName="country" type="text"
+                            placeholder="Start typing" />
+                        <mat-error *ngIf="hasError('country', 'required')">
+                            name is required *
+                        </mat-error>
+                    </div>
+
+                    <div class="form-group-item">
+                        <label class="gi-input-label" for="country">country <span class="required">*</span></label>
+                        <input class="gi-input" id="country" formControlName="country" type="text"
+                            placeholder="Start typing" />
+                        <mat-error *ngIf="hasError('country', 'required')">
+                            name is required *
+                        </mat-error>
+                    </div>
+
+
+
+                    <div class="form-group-item">
+                        <label class="gi-input-label" for="password">password <span class="required">*</span></label>
+                        <input class="gi-input" id="password" formControlName="password" type="text"
+                            placeholder="Start typing" />
+                        <mat-error *ngIf="hasError('password', 'required')">
+                            name is required *
+                        </mat-error>
+                    </div>
+
+                    <div class="form-group-item">
+                        <label class="gi-input-label" for="confirmPassword">confirm Password <span class="required">*</span></label>
+                        <input class="gi-input" id="confirmPassword" formControlName="confirmPassword" type="text"
+                            placeholder="Start typing" />
+                        <mat-error *ngIf="hasError('confirmPassword', 'required')">
+                            name is required *
+                        </mat-error>
+                    </div>
+
+
+                    <!-- <div class="form-group-item">
+                    <label class="gi-input-label" for="password">Password <span class="required">*</span></label>
+                    <input class="gi-input" id="password" formControlName="password" type="text"
+                        placeholder="Start typing" />
+                    <mat-error *ngIf="hasError('password', 'required')">
+                        Password is required *
+                    </mat-error>
+                </div>
+
+                <div class="form-group-item">
+                    <label class="gi-input-label" for="_organizationId">Organization Id <span
+                            class="required">*</span></label>
+                    <input class="gi-input" id="_organizationId" formControlName="organizationId" type="text"
+                        placeholder="Start typing" />
+                    <mat-error *ngIf="hasError('organizationId', 'required')">
+                        Organization Id is required *
+                    </mat-error>
+                </div> -->
+
+                </div>
+
+            </div>
+            <div fxLayout="row" fxLayoutAlign="end center">
+                <button mat-flat-button class="gi-button" type="submit" color="primary"
+                    [disabled]="registerForm.invalid">
+                    Connect
+                </button>
+            </div>
+        </div>
     </div>
 </form>
+<!-- <form [formGroup]='registerForm' (ngSubmit)="registerForm.valid && register()" autocomplete="off">
+    <h2 class="text-center text-primary">Sign up</h2>
+    <hr>
+
+    <div class="form-group">
+        <label class="control-label" style="margin-right: 10px;">I am a: </label>
+        <label class="radio-inline">
+            <input type="radio" value='male' formControlName='gender'> Male
+        </label>
+        <label class="radio-inline">
+            <input type="radio" value='female' formControlName='gender' class="ml-3"> Female
+        </label>
+    </div>
+
+    <app-text-input [formControl]='registerForm.controls["username"]' [label]='"Username"'></app-text-input>
+    <app-text-input [formControl]='registerForm.controls["knownAs"]' [label]='"Known As"'></app-text-input>
+    <app-date-input [formControl]='registerForm.controls["dateOfBirth"]' [label]='"Date Of Birth"' [maxDate]='maxDate'>
+    </app-date-input>
+    <app-text-input [formControl]='registerForm.controls["city"]' [label]='"City"'></app-text-input>
+    <app-text-input [formControl]='registerForm.controls["country"]' [label]='"Country"'></app-text-input>
+    <app-text-input [formControl]='registerForm.controls["password"]' [label]='"Password"' [type]='"password"'>
+    </app-text-input>
+    <app-text-input [formControl]='registerForm.controls["confirmPassword"]' [label]='"Confirm Password"'
+        [type]='"password"'></app-text-input>
+
+    <div class="row" *ngIf="validationErrors.length > 0">
+        <ul class="text-danger">
+            <li *ngFor="let error of validationErrors">
+                {{error}}
+            </li>
+        </ul>
+    </div>
+
+    <div class="form-group text-center">
+        <button [disabled]='!registerForm.valid' class="btn btn-success mr-2" type="submit">Register</button>
+        <button class="btn btn-default mr-2" (click)="cancel()" type="button">Cancel</button>
+    </div>
+</form> -->

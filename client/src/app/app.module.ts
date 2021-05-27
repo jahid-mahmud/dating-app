@@ -40,7 +40,7 @@ import { PhotoeditorComponent } from './members/photoeditor/photoeditor.componen
     NotFoundComponent,
     MemberCardComponent,
     MemberEditComponent,
-    PhotoeditorComponent
+    PhotoeditorComponent,
   ],
   imports: [
     BrowserModule,

@@ -9,6 +9,8 @@ import {MatCardModule} from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
+import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
 
 @NgModule({
   declarations: [],
@@ -25,7 +27,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatCardModule,
     FlexLayoutModule,
     MatFormFieldModule,
-    MatDialogModule
+    MatDialogModule,
+    MatInputModule,
+    BsDatepickerModule.forRoot()
   ],
   exports: [
     BsDropdownModule,
@@ -37,7 +41,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatCardModule,
     FlexLayoutModule,
     MatFormFieldModule,
-    MatDialogModule
+    MatDialogModule,
+    MatInputModule,
+    BsDatepickerModule
   ]
 })
 export class SharedModule { }
